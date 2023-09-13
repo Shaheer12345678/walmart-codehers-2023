@@ -1,1 +1,2 @@
-from inventory_rebalancer import Warehouse, Store, greedy_rebalance
+from inventory_rebalancer import Warehouse, Store, greedy_rebalance
+
