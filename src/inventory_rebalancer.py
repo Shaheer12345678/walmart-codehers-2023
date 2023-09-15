@@ -15,4 +15,13 @@ class Warehouse:
     id: int
     stock: int
 
-@dataclass
+@dataclass
+class Store:
+    id: int
+    demand: int
+    received: int = 0
+
+def greedy_rebalance(warehouses: List[Warehouse], stores: List[Store], ship_cost=1) -> Tuple[int, list]:
+    """Greedy: ship from the fullest warehouse to the most-starved store first."""
+    log = []
+    total_ship_cost = 0
