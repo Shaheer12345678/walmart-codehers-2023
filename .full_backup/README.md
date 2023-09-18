@@ -4,4 +4,7 @@
 **Audience:** Women in engineering students (India/Canada/US)  
 **Format:** Multiple rounds of **algorithmic & data-structure** problems; code efficiency + correctness via automated tests.
 
-This folder contains a representative problem: **Dynamic Inventory Rebalancing Simulation** (Python).
+This folder contains a representative problem: **Dynamic Inventory Rebalancing Simulation** (Python).
+It mirrors the kind of optimization/greedy/dp thinking you would demonstrate in timed rounds.
+
+- `src/inventory_rebalancer.py` — CLI tool that simulates demand at stores and rebalances from warehouses with minimal cost.

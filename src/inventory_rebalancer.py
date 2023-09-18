@@ -24,4 +24,13 @@ class Store:
 def greedy_rebalance(warehouses: List[Warehouse], stores: List[Store], ship_cost=1) -> Tuple[int, list]:
     """Greedy: ship from the fullest warehouse to the most-starved store first."""
     log = []
-    total_ship_cost = 0
+    total_ship_cost = 0
+    # Sort stores by unmet demand descending
+    def unmet(s: Store): return s.demand - s.received
+    while True:
+        stores.sort(key=lambda s: unmet(s), reverse=True)
+        warehouses.sort(key=lambda w: w.stock, reverse=True)
+        if not stores or not warehouses: break
+        if unmet(stores[0]) <= 0 or warehouses[0].stock <= 0: break
+        take = min(unmet(stores[0]), warehouses[0].stock)
+        stores[0].received += take
