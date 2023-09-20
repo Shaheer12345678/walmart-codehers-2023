@@ -33,4 +33,13 @@ def greedy_rebalance(warehouses: List[Warehouse], stores: List[Store], ship_cost
         if not stores or not warehouses: break
         if unmet(stores[0]) <= 0 or warehouses[0].stock <= 0: break
         take = min(unmet(stores[0]), warehouses[0].stock)
-        stores[0].received += take
+        stores[0].received += take
+        warehouses[0].stock -= take
+        total_ship_cost += take * ship_cost
+        log.append((warehouses[0].id, stores[0].id, take))
+    # penalty for shortages
+    shortage = sum(max(0, unmet(s)) for s in stores)
+    total_cost = total_ship_cost + 5*shortage
+    return total_cost, log
+
+def main():
