@@ -42,4 +42,13 @@ def greedy_rebalance(warehouses: List[Warehouse], stores: List[Store], ship_cost
     total_cost = total_ship_cost + 5*shortage
     return total_cost, log
 
-def main():
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--warehouses", type=int, default=2)
+    ap.add_argument("--stores", type=int, default=4)
+    ap.add_argument("--seed", type=int, default=42)
+    args = ap.parse_args()
+    random.seed(args.seed)
+
+    warehouses = [Warehouse(i, random.randint(30, 70)) for i in range(args.warehouses)]
+    stores = [Store(i, random.randint(20, 60)) for i in range(args.stores)]
