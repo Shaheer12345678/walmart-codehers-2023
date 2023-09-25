@@ -11,4 +11,6 @@ It mirrors the kind of optimization/greedy/dp thinking you would demonstrate in 
 - `src/test_inventory_rebalancer.py` — Tiny sanity tests to show usage.
 - No UI/UX; focus is logic, complexity, and clean code.
 
-**Links (background):**
+**Links (background):**
+- Official example page (2025 cycle, same format): `https://unstop.com/competitions/codehers-2025-walmart-global-tech-india-1372066`
+

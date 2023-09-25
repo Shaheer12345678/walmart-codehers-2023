@@ -51,4 +51,13 @@ def main():
     random.seed(args.seed)
 
     warehouses = [Warehouse(i, random.randint(30, 70)) for i in range(args.warehouses)]
-    stores = [Store(i, random.randint(20, 60)) for i in range(args.stores)]
+    stores = [Store(i, random.randint(20, 60)) for i in range(args.stores)]
+    cost, plan = greedy_rebalance(warehouses, stores)
+    print("Warehouses:", warehouses)
+    print("Stores:", stores)
+    print("Shipments (wh -> store, units):", plan)
+    print("Total cost:", cost)
+
+if __name__ == "__main__":
+    main()
+
